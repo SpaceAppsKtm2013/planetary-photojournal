@@ -94,8 +94,8 @@ public class NASACrawler {
 		//controller.addSeed("http://photojournal.jpl.nasa.gov/targetFamily/Uranus");
 		// controller.addSeed("http://photojournal.jpl.nasa.gov/targetFamily/Neptune");
 		//controller.addSeed("http://photojournal.jpl.nasa.gov/targetFamily/Pluto");
-		//controller.addSeed("http://photojournal.jpl.nasa.gov/gallery/universe");
-		controller.addSeed("http://photojournal.jpl.nasa.gov/target/Other");
+		controller.addSeed("http://photojournal.jpl.nasa.gov/gallery/universe");
+		//controller.addSeed("http://photojournal.jpl.nasa.gov/target/Other");
 		 
         // controller.addSeed("http://www.ics.uci.edu/~lopes/");
          //controller.addSeed("http://www.ics.uci.edu/");

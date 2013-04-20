@@ -1,6 +1,5 @@
 import java.net.MalformedURLException;
 import java.net.URL;
-import org.apache.commons.lang.StringEscapeUtils;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -9,6 +8,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.Lock;
 import java.util.regex.Pattern;
 
+import org.apache.commons.lang.StringEscapeUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -38,6 +38,7 @@ public class BajraCrawler extends WebCrawler {
 	 */
 	@Override
 	public boolean shouldVisit(WebURL url) {
+		
 		String href = url.getURL().toLowerCase();
 		
 		boolean traverse = true;
@@ -55,6 +56,7 @@ public class BajraCrawler extends WebCrawler {
 			GlobalStore.traversed.add(url);
 			writersLock.unlock();
 		}
+		if(!href.contains("catalog")) traverse = false; 
 		return traverse;
 	}
 
@@ -73,8 +75,7 @@ public class BajraCrawler extends WebCrawler {
 			// TODO Auto-generated catch block
 			e4.printStackTrace();
 		}
-		int lastSlash = url.lastIndexOf('/');
-		String filename = url.substring(lastSlash);
+		
 		System.out.println("URL: " + url);
 		if(!url.contains("catalog")) return;
 
@@ -172,7 +173,7 @@ public class BajraCrawler extends WebCrawler {
 
 			String SQL = "INSERT INTO photos(url, description, mission, target, instrument," +
 					"category_id, url_mid, title, jpl_id) VALUES ('" + imageUrl + "','" + description + "','" + 
-					mission + "','" + targetName + "','" + instrument + "', 11,'" + imageMidUrl +
+					mission + "','" + targetName + "','" + instrument + "', 10,'" + imageMidUrl +
 					"','" + title + "','" + jplId + "')";
 			
 			System.out.println(SQL);
