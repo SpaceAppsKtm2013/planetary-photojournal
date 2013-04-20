@@ -56,7 +56,7 @@ public class BajraCrawler extends WebCrawler {
 			GlobalStore.traversed.add(url);
 			writersLock.unlock();
 		}
-		if(!href.contains("catalog")) traverse = false; 
+		if(!href.contains("catalog") && !href.contains("gallery")) traverse = false; 
 		return traverse;
 	}
 
