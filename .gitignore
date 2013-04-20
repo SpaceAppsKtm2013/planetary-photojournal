@@ -1,0 +1,11 @@
+.classpath
+.classpath/*
+.project
+.project/*
+.settings
+.settings/*
+bin
+bin/*
+data/*
+data
+mysql-connector-java-5.1.17-bin.jar
