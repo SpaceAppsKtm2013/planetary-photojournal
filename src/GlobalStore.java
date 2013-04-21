@@ -20,7 +20,7 @@ public class GlobalStore {
 	// Done one by one to facilitate insertion + tracking.
 	// I really wanted to just have it do everything, but was under a time 
 	// crunch.
-	public static final int CURRENT_CATEGORY = 6;
+	public static final int CURRENT_CATEGORY = 7;
 	
 	static {
 

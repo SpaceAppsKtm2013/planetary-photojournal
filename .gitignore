@@ -1,4 +1,8 @@
 .classpath
+Photojournal-ios/.git
+Photojournal-ios/.git/*
+__MACOSX
+__MACOSX/*
 .classpath/*
 .project
 .project/*
