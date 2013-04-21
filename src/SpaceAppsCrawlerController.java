@@ -83,28 +83,13 @@ public class SpaceAppsCrawlerController {
 		 * URLs that are fetched and then the crawler starts following links
 		 * which are found in these pages
 		 */
-
-		 controller.addSeed("http://photojournal.jpl.nasa.gov/target/Sun");
-		// controller.addSeed("http://photojournal.jpl.nasa.gov/targetFamily/Mercury");
-		// controller.addSeed("http://photojournal.jpl.nasa.gov/targetFamily/Venus");
-		// controller.addSeed("http://photojournal.jpl.nasa.gov/targetFamily/Earth");
-		 //controller.addSeed("http://photojournal.jpl.nasa.gov/targetFamily/Mars");
-		// controller.addSeed("http://photojournal.jpl.nasa.gov/targetFamily/Jupiter");
-		//controller.addSeed("http://photojournal.jpl.nasa.gov/targetFamily/Saturn");
-		//controller.addSeed("http://photojournal.jpl.nasa.gov/targetFamily/Uranus");
-		//controller.addSeed("http://photojournal.jpl.nasa.gov/targetFamily/Neptune");
-		//controller.addSeed("http://photojournal.jpl.nasa.gov/targetFamily/Pluto");
-		//controller.addSeed("http://photojournal.jpl.nasa.gov/gallery/universe");
-		//controller.addSeed("http://photojournal.jpl.nasa.gov/target/Other");
-		 
-        // controller.addSeed("http://www.ics.uci.edu/~lopes/");
-         //controller.addSeed("http://www.ics.uci.edu/");
+		controller.addSeed(GlobalStore.seeds.get(GlobalStore.CURRENT_CATEGORY));
 
 		/*
 		 * Start the crawl. This is a blocking operation, meaning that your code
 		 * will reach the line after this only when crawling is finished.
 		 */
-		controller.start(SpaceAppsController.class, numberOfCrawlers);
+		controller.start(SpaceAppsCrawler.class, numberOfCrawlers);
 	}
 
 }
