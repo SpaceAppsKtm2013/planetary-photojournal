@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
@@ -17,7 +16,7 @@ public class GlobalStore {
 
 	public static List<String> seeds = new ArrayList<String>();
 
-	public static final int CURRENT_CATEGORY = 1;
+	public static final int CURRENT_CATEGORY = 3;
 	
 	static {
 

@@ -56,8 +56,11 @@ public class SpaceAppsCrawler extends WebCrawler {
 			GlobalStore.traversed.add(url);
 			writersLock.unlock();
 		}
+		if(href.contains("targetfamily")) {
+			System.out.println("Found a URL with targetFamily " + href);
+		}
 		if(!href.contains("catalog") && !href.contains("gallery") 
-				&& !href.contains("targetFamily")) traverse = false; 
+				&& !href.contains("targetfamily")) traverse = false; 
 		
 		if(href.contains("catalog")) {
 			int lastSlash = href.lastIndexOf("/");
@@ -97,16 +100,8 @@ public class SpaceAppsCrawler extends WebCrawler {
 			e4.printStackTrace();
 		}
 		
-		if(url.contains("gallery")) {
-			HtmlParseData parseData = (HtmlParseData) page.getParseData();
-			List<WebURL> outgoingLinks = parseData.getOutgoingUrls();
-			for(int i = 0; i < outgoingLinks.size(); ++i) {
-				System.out.println("outgoing link = " + outgoingLinks.get(i).getURL());
-			}
-		} else {
-			System.out.println("No gallery in the URL. " + page.getWebURL().getURL());
-		}
-		if(!url.contains("catalog")) return;
+		if(!url.contains("catalog")) return; // these are the only pages we really need to parse
+											 // the rest are just stops on our way to the end goal.
 
 		if (page.getParseData() instanceof HtmlParseData) {
 			HtmlParseData htmlParseData = (HtmlParseData) page.getParseData();
