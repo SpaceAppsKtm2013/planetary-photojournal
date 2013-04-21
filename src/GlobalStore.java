@@ -16,7 +16,7 @@ public class GlobalStore {
 
 	public static List<String> seeds = new ArrayList<String>();
 
-	public static final int CURRENT_CATEGORY = 3;
+	public static final int CURRENT_CATEGORY = 4;
 	
 	static {
 
