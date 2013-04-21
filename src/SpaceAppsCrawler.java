@@ -34,7 +34,8 @@ public class SpaceAppsCrawler extends WebCrawler {
 	 * the page with that ID has been visited. There are lot of additional pages that
 	 * have parameters that I didn't want to revisit, so needed to exclude those.
 	 * 
-	 * Locks used to ensure thread safety.
+	 * Locks used to ensure thread safety; some java purists might be appaled that we didn't
+	 * use synchronized, but I am a C guy, so this was easier.
 	 */
 	@Override
 	public boolean shouldVisit(WebURL url) {
@@ -62,6 +63,13 @@ public class SpaceAppsCrawler extends WebCrawler {
 		if(!href.contains("catalog") && !href.contains("gallery") 
 				&& !href.contains("targetfamily")) traverse = false; 
 		
+		
+		/* This part is different from the unique URL filter. The URL filter works 
+		 * for everything I've visited or contemplated visiting. This next chunk makes
+		 * sure I don't revisit a page which has the same ID as a page I've already visited.
+		 * This is here because some of the ID pages take parameters that cause the URL to 
+		 * appear different, but in reality, it's the same page.
+		 */
 		if(href.contains("catalog")) {
 			int lastSlash = href.lastIndexOf("/");
 			int questionIndex = href.indexOf("?");

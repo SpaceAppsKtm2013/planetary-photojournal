@@ -16,7 +16,11 @@ public class GlobalStore {
 
 	public static List<String> seeds = new ArrayList<String>();
 
-	public static final int CURRENT_CATEGORY = 4;
+	// This is the planet/category it starts the crawl for.
+	// Done one by one to facilitate insertion + tracking.
+	// I really wanted to just have it do everything, but was under a time 
+	// crunch.
+	public static final int CURRENT_CATEGORY = 6;
 	
 	static {
 

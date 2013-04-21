@@ -1,4 +1,12 @@
 <?php 
+/* ridiculously simple service that takes the following parameters:
+ * category_id: default for the "universe" pictures.
+ * offset: start index
+ * number: number of results to return 
+ *
+ * Returns the results in JSON along with a "is_remaining" flag letting the 
+ * client application know that there is more data to grab.
+ */
 include_once 'database_connection.php';
 
 $offset = isset($_GET['offset']) ? $_GET['offset'] : 0;
@@ -15,7 +23,6 @@ $is_remaining = FALSE;
 if($row['count'] - (offset + number) > 0) $is_remaining = TRUE;
 
 $sql = "SELECT * FROM photos WHERE category_id = $category LIMIT $number OFFSET $offset";
-error_log("query = $sql");
 $dbconn = connect();
 $result = $dbconn->query($sql);
 $photos = array();
